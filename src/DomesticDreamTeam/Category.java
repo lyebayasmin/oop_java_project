@@ -1,4 +1,4 @@
-package oop_java_project;
+package DomesticDreamTeam;
 
 public class Category {
     private String name;
@@ -7,7 +7,8 @@ public class Category {
     private String experience;
     private Category_type type;
 
-    public Category(String name, String gender, int age, String experience, Category_type type) {
+
+    public Category() {
         this.name = name;
         this.gender = gender;
         this.age = age;
@@ -53,5 +54,16 @@ public class Category {
 
     public void setType(Category_type type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", experience='" + experience + '\'' +
+                ", type=" + type +
+                '}';
     }
 }

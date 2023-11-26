@@ -1,16 +1,19 @@
-package oop_java_project;
+package DomesticDreamTeam;
 
 import com.sun.security.jgss.GSSUtil;
-import oop_java_project.Admin;
-import oop_java_project.Database;
-import oop_java_project.NormalUser;
-import oop_java_project.User;
+import DomesticDreamTeam.Admin;
+import DomesticDreamTeam.Database;
+import DomesticDreamTeam.NormalUser;
+import DomesticDreamTeam.User;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main{
     static Scanner s;
     static Database database= new Database();
+
 
     public static void main(String[] args) {
         System.out.println("Welcome to Domestic Dream Team!");
@@ -81,7 +84,7 @@ public class Main{
 
 
         }
- database.getArraylist();
+        database.getArraylist();
 
     }
 

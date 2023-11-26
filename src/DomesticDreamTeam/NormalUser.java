@@ -1,5 +1,7 @@
-package oop_java_project;
+package DomesticDreamTeam;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class NormalUser extends User{
@@ -56,4 +58,14 @@ public class NormalUser extends User{
 
     }
 
+    @Override
+    public String toString() {
+        return "NormalUser{" +
+                "name='" + name + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", functions=" + Arrays.toString(functions) +
+                '}';
+    }
 }

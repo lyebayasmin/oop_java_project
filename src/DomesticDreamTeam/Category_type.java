@@ -1,4 +1,5 @@
-package oop_java_project;
+package DomesticDreamTeam;
+
 
 public enum Category_type {
     MAID, DRIVER , COOK, PLUMBER, ELECTRICIAN

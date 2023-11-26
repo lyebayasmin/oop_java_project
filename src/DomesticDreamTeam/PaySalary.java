@@ -1,4 +1,5 @@
-package oop_java_project;
+package DomesticDreamTeam;
+
 
 public class PaySalary implements Functions{
     @Override

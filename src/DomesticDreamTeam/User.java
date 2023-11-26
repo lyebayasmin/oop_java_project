@@ -1,4 +1,5 @@
-package oop_java_project;
+package DomesticDreamTeam;
+
 
 public abstract class User {
     protected String name;
@@ -46,6 +47,7 @@ public abstract class User {
         this.email = email;
         this.password = password;
     }
+    abstract public String toString();
 
     abstract public void menu();
 }

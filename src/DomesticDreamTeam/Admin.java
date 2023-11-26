@@ -1,5 +1,7 @@
-package oop_java_project;
+package DomesticDreamTeam;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Admin extends User{
@@ -55,8 +57,13 @@ public class Admin extends User{
         functions[n-1].function();
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "name='" + name + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password +
+                '}';
+    }
 }

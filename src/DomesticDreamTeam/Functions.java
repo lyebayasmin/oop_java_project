@@ -1,4 +1,5 @@
-package oop_java_project;
+package DomesticDreamTeam;
+
 
 public interface Functions {
     public void function();
