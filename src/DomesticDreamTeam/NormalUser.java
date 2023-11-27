@@ -1,7 +1,6 @@
 package DomesticDreamTeam;
 
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class NormalUser extends User{
@@ -9,7 +8,7 @@ public class NormalUser extends User{
         super(name, phonenumber, email, password);
         this.functions = new Functions[]{
                 new UpdateProfile(),
-                new Searchworker(),
+                new Viewworker(),
                 new PaySalary(),
                 new TrackRequest(),
                 new CancelService(),
@@ -43,7 +42,7 @@ public class NormalUser extends User{
         }
 
     @Override
-    public void menu(){
+    public void menu(Database database, User user){
         System.out.println("***** Menu *****\n");
         System.out.println("1. Update Profile: \n");
         System.out.println("2. Search Workers: \n");
@@ -54,7 +53,7 @@ public class NormalUser extends User{
         System.out.println("7. Exit: \n");
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        functions[n-1].function();
+        functions[n-1].function(database,user);
 
     }
 
@@ -64,8 +63,7 @@ public class NormalUser extends User{
                 "name='" + name + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", functions=" + Arrays.toString(functions) +
+                ", password='" + password +
                 '}';
     }
 }

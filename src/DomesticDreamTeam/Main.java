@@ -12,10 +12,11 @@ import java.util.Scanner;
 
 public class Main{
     static Scanner s;
-    static Database database= new Database();
+    static Database database;
 
 
     public static void main(String[] args) {
+        database = new Database();
         System.out.println("Welcome to Domestic Dream Team!");
         int n;
 
@@ -46,10 +47,9 @@ public class Main{
         System.out.println("Enter password");
         s = new Scanner(System.in);
         String password = s.next();
-       database.login(phonenumber,password);
-
-
-
+        User n = database.login(phonenumber,password);
+        User user = database.getuser(n);
+        user.menu(database,user);
     }
     private static void newUser() {
         System.out.println("Enter name:");
@@ -84,7 +84,7 @@ public class Main{
 
 
         }
-        database.getArraylist();
+//        database.getArraylist();
 
     }
 

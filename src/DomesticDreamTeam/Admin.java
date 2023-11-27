@@ -10,8 +10,7 @@ public class Admin extends User{
         this.functions = new Functions[] {
                 new Addworker(),
                 new Removeworker(),
-                new Updateworker(),
-                new Searchworker(),
+                new Viewworker(),
                 new Seeorders(),
                 new Seecomplaints(),
                 new Seemsg(),
@@ -41,20 +40,19 @@ public class Admin extends User{
         super.setName(email);
     }
     @Override
-    public void menu(){
+    public void menu(Database database, User user){
         System.out.println("*****Admin Menu***** \n");
         System.out.println("1. Add Worker \n");
         System.out.println("2. Remove Worker: \n");
-        System.out.println("3. Update worker: \n");
-        System.out.println("4. Search Worker: \n");
-        System.out.println("5. See Orders: \n");
-        System.out.println("6. See Complaints \n");
-        System.out.println("7. See Messages: \n");
-        System.out.println("8. Delete All Data: \n");
-        System.out.println("9. Exit\n");
+        System.out.println("3. View Workers: \n");
+        System.out.println("4. See Orders: \n");
+        System.out.println("5. See Complaints \n");
+        System.out.println("6. See Messages: \n");
+        System.out.println("7. Delete All Data: \n");
+        System.out.println("8. Exit\n");
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        functions[n-1].function();
+        functions[n-1].function(database,user);
     }
 
     @Override
@@ -66,4 +64,6 @@ public class Admin extends User{
                 ", password='" + password +
                 '}';
     }
+
+
 }

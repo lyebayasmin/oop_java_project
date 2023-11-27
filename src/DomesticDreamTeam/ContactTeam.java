@@ -3,7 +3,7 @@ package DomesticDreamTeam;
 
 public class ContactTeam implements Functions{
     @Override
-    public void function(){
+    public void function(Database database, User user){
 
     }
 }

@@ -1,0 +1,6 @@
+Category{name='nisha', gender='Female', age=21, experience='3', type=MAID}
+Category{name='nisha', gender='female', age=21, experience='3', type=MAID}
+Category{name='nisha', gender='female', age=21, experience='3', type=MAID}
+Category{name='sonia', gender='female', age=33, experience='7', type=MAID}
+Category{name='sonia', gender='female', age=33, experience='7', type=MAID}
+Category{name='nisha', gender='female', age=21, experience='3', type=MAID}
