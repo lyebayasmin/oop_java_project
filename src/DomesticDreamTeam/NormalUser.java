@@ -8,7 +8,7 @@ public class NormalUser extends User{
         super(name, phonenumber, email, password);
         this.functions = new Functions[]{
                 new UpdateProfile(),
-                new Viewworker(),
+                new Hireworker(),
                 new PaySalary(),
                 new TrackRequest(),
                 new CancelService(),
@@ -45,7 +45,7 @@ public class NormalUser extends User{
     public void menu(Database database, User user){
         System.out.println("***** Menu *****\n");
         System.out.println("1. Update Profile: \n");
-        System.out.println("2. Search Workers: \n");
+        System.out.println("2. Hire Workers: \n");
         System.out.println("3. Pay Salary: \n");
         System.out.println("4. Track requests: \n");
         System.out.println("5. Cancel Service: \n");

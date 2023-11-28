@@ -8,6 +8,7 @@ import DomesticDreamTeam.User;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main{
@@ -35,9 +36,6 @@ public class Main{
             }
 
         } while (n != 0);
-
-
-
 
         }
     private static void login() {
@@ -84,7 +82,6 @@ public class Main{
 
 
         }
-//        database.getArraylist();
 
     }
 

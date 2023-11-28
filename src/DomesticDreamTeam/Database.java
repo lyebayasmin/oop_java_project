@@ -1,21 +1,26 @@
 package DomesticDreamTeam;
+import com.sun.security.jgss.GSSUtil;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
-public class Database{
+public class Database {
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<String> phonenumber = new ArrayList<>();
     private ArrayList<Category> categories = new ArrayList<>();
+    private ArrayList<Category> hiredworkers = new ArrayList<>();
     private File userfile = new File("G:\\DomesticDreamTeam\\Data\\Usersfile");
     private File workersfile = new File("G:\\DomesticDreamTeam\\Data\\Workersfile");
+    private File hiredworker = new File("G:\\DomesticDreamTeam\\Data\\Hiredworkersfile");
     private File folder = new File("G:\\DomesticDreamTeam\\Data");
 
-    public Database(){
-        if (!folder.exists()){
+    public Database() {
+        if (!folder.exists()) {
             folder.mkdirs();
         }
-        if (!userfile.exists() || !workersfile.exists()){
+        if (!userfile.exists() || !workersfile.exists()) {
             try {
                 userfile.createNewFile();
                 workersfile.createNewFile();
@@ -26,12 +31,14 @@ public class Database{
         getUser();
         getWorker();
     }
-    public void addUser(User u){
+
+    public void addUser(User u) {
         users.add(u);
         phonenumber.add(u.getPhonenumber());
         saveUsers();
     }
-    public User getuser(User u){
+
+    public User getuser(User u) {
         return u;
     }
 
@@ -46,19 +53,21 @@ public class Database{
         System.out.println("Invalid credentials");
         return null;
     }
-    public void getArraylist(){
-        for (User u : users){
+
+    public void getArraylist() {
+        for (User u : users) {
             System.out.println(u.name);
         }
 
     }
+
     public void addWorker(Category category) {
         categories.add(category);
         saveWorkers();
 
 
-
     }
+
     public void getUser() {
         String text = "";
         try {
@@ -97,20 +106,22 @@ public class Database{
             }
         }
     }
-    public void saveUsers(){
+
+    public void saveUsers() {
         String text = "";
-        for (User u : users){
+        for (User u : users) {
             text = text + u.toString() + "\n";
         }
         try {
-            FileWriter fw = new FileWriter(userfile,true);
+            FileWriter fw = new FileWriter(userfile, true);
             fw.write(text);
             fw.close();
             System.out.println("Data saved");
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
     public void getWorker() {
         String text = "";
         try {
@@ -149,20 +160,22 @@ public class Database{
             }
         }
     }
-    public void saveWorkers(){
+
+    public void saveWorkers() {
         String text = "";
-        for ( Category c : categories){
+        for (Category c : categories) {
             text = text + c.toString() + "\n";
         }
         try {
-            FileWriter fw = new FileWriter(workersfile,true);
+            FileWriter fw = new FileWriter(workersfile, true);
             fw.write(text);
             fw.close();
             System.out.println("Data saved");
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
     public int getWorker(String workername) {
         int i = -1;
         for (Category c : categories) {
@@ -173,11 +186,66 @@ public class Database{
         return i;
 
     }
+    public ArrayList<Category> getWorkerByCategory(Category_type cat) {
+        ArrayList<Category> workersByCategory = new ArrayList<>();
+        for (Category c : categories) {
+            if (c.getType().equals(cat)) {
+                workersByCategory.add(c);
+            }
+        }
+        return workersByCategory;
+    }
+
     public void removeWorker(int i) {
         categories.remove(i);
 
     }
-    public ArrayList<Category> getAllWorkers(){
+
+    public ArrayList<Category> getAllWorkers() {
         return categories;
     }
+
+
+    public void deleteAllData() {
+        if (userfile.exists()){
+            userfile.delete();
+        }
+        if (workersfile.exists()){
+            workersfile.delete();
+        }
+    }
+    public void exit() {
+        System.out.println("Terminating the application...");
+        System.exit(0);
+    }
+    public void saveHiredWorkers() {
+        if (!hiredworker.exists()) {
+            try {
+                hiredworker.createNewFile();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            String text = "";
+            for (Category c : hiredworkers) {
+                text = text + c.toString() + "\n";
+            }
+            try {
+                FileWriter fw = new FileWriter(hiredworker, true);
+                fw.write(text);
+                fw.close();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }
+    public void hiring(Category cat){
+        for (Category h: hiredworkers){
+            if (h.getName().equals(cat)){
+                hiredworkers.add(cat);
+                saveHiredWorkers();
+            }
+        }
+    }
+
 }
